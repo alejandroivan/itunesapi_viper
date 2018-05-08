@@ -39,6 +39,8 @@ extension SearchPresenter: SearchPresenterInterface {
         _view.medias = []
         
         lastTerm = searchTerm
+        
+        _view.showLoadingIndicator()
         _interactor.fetchMedia(for: searchTerm, page: 1)
     }
     
@@ -57,6 +59,8 @@ extension SearchPresenter: SearchPresenterInterface {
         
         currentPage += 1
         lastTerm = searchTerm
+        
+        _view.showLoadingIndicator()
         _interactor.fetchMedia(for: searchTerm, page: currentPage)
     }
     
@@ -73,6 +77,7 @@ extension SearchPresenter {
     func successFetching(medias: [Media]) {
         currentMedias.append(contentsOf: medias)
         _view.medias = medias
+        _view.hideLoadingIndicator()
     }
     
     func failureFetching(error: Error?) {
@@ -82,5 +87,6 @@ extension SearchPresenter {
         }
         
         print("Error: \(error)")
+        _view.hideLoadingIndicator()
     }
 }

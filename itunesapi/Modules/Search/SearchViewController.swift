@@ -1,12 +1,38 @@
 import UIKit
+import ICSPullToRefresh
 
 final class SearchViewController: UIViewController {
 
     // MARK: - Public properties -
     @IBOutlet weak var tableView: UITableView!
-    let searchController = UISearchController(searchResultsController: nil)
-
     var presenter: SearchPresenterInterface!
+    
+    var medias: [Media] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    
+    // MARK: - Private properties -
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate let activityIndicator = UIActivityIndicatorView()
+    
+    fileprivate var activityIndicatorCount: Int = 0 { // Cuando es 0, se oculta
+        didSet {
+            if activityIndicatorCount != 0 {
+                searchController.searchBar.isUserInteractionEnabled = false
+                view.isUserInteractionEnabled = false
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+                view.isUserInteractionEnabled = true
+                searchController.searchBar.isUserInteractionEnabled = true
+            }
+        }
+    }
 
     // MARK: - Lifecycle -
 
@@ -17,15 +43,14 @@ final class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        setupActivityIndicator()
+        setupInfiniteScrolling()
         setupSearchController()
     }
 	
-    var medias: [Media] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        activityIndicator.frame = CGRect(x: view.center.x - 30, y: view.center.y - 30, width: 60, height: 60)
     }
 }
 
@@ -127,5 +152,44 @@ extension SearchViewController: UISearchBarDelegate/*, UISearchResultsUpdating*/
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         medias = []
+    }
+}
+
+
+
+
+// MARK: - Infinite scrolling (paginación
+extension SearchViewController {
+    func setupInfiniteScrolling() {
+        tableView.addInfiniteScrollingWithHandler {
+            guard let term = self.searchController.searchBar.text?.lowercased() else {
+                self.medias = []
+                return
+            }
+            
+            self.presenter.nextPage(searchTerm: term)
+        }
+    }
+}
+
+
+
+
+// MARK: - Activity indicator
+extension SearchViewController {
+    func setupActivityIndicator() {
+        activityIndicator.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.clipsToBounds = true
+        activityIndicator.layer.cornerRadius = 8.0
+        view.addSubview(activityIndicator)
+    }
+    
+    func showLoadingIndicator() {
+        activityIndicatorCount += 1
+    }
+    
+    func hideLoadingIndicator() {
+        activityIndicatorCount -= 1
     }
 }

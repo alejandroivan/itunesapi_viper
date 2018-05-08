@@ -2,14 +2,21 @@ import Foundation
 
 struct Media: Decodable {
     let wrapperType: String
-    let kind: String
-    
-    let trackId: Int
-    let trackName: String
     let artistName: String
     let collectionName: String
-    
+
+    let kind: String?
+    let trackId: Int?
+    let trackName: String?
+
     var artwork: String?
+    var previewUrl: String?
+}
+
+
+
+
+extension Media {
     var urlForArtwork: URL? {
         guard let artwork = artwork else {
             return nil
@@ -17,8 +24,7 @@ struct Media: Decodable {
         
         return URL(string: artwork)
     }
-
-    var previewUrl: String?
+    
     var urlForPreview: URL? {
         guard let previewUrl = previewUrl else {
             return nil

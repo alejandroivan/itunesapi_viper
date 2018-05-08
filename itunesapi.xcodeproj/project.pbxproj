@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6EFDC61B20A1F71B00E8B824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */; };
-		6EFDC61D20A1F71B00E8B824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC61C20A1F71B00E8B824 /* ViewController.swift */; };
 		6EFDC62220A1F72000E8B824 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC62120A1F72000E8B824 /* Assets.xcassets */; };
 		6EFDC62520A1F72000E8B824 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC62320A1F72000E8B824 /* LaunchScreen.storyboard */; };
 		6EFDC63020A1F72000E8B824 /* itunesapiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC62F20A1F72000E8B824 /* itunesapiTests.swift */; };
@@ -49,7 +48,6 @@
 		5E9392EB578B8A7E2CC996F2 /* Pods_itunesapi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesapi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDC61720A1F71B00E8B824 /* itunesapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunesapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6EFDC61C20A1F71B00E8B824 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6EFDC62120A1F72000E8B824 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EFDC62420A1F72000E8B824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EFDC62620A1F72000E8B824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				6EFDC64220A1FD4900E8B824 /* Common */,
 				6EFDC64120A1FD4000E8B824 /* Resources */,
 				6EFDC64020A1FD3400E8B824 /* Modules */,
-				6EFDC61C20A1F71B00E8B824 /* ViewController.swift */,
 			);
 			path = itunesapi;
 			sourceTree = "<group>";
@@ -376,11 +373,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-itunesapi/Pods-itunesapi-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ICSPullToRefresh/ICSPullToRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ICSPullToRefresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,7 +413,6 @@
 			files = (
 				6EFDC64B20A1FE9400E8B824 /* InteractorInterface.swift in Sources */,
 				6EFDC65920A200CB00E8B824 /* SearchViewController.swift in Sources */,
-				6EFDC61D20A1F71B00E8B824 /* ViewController.swift in Sources */,
 				6EFDC65820A200CB00E8B824 /* SearchPresenter.swift in Sources */,
 				6EFDC65620A200CB00E8B824 /* SearchInteractor.swift in Sources */,
 				6EFDC64C20A1FE9400E8B824 /* ViewInterface.swift in Sources */,
