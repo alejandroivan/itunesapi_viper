@@ -33,6 +33,7 @@ struct Media: Decodable {
 
 extension Media {
     enum CodingKeys: String, CodingKey {
-        case wrapperType, kind, trackName, artistName, collectionName, artwork, previewUrl, trackId
+        case wrapperType, kind, trackName, artistName, collectionName, previewUrl, trackId
+        case artwork = "artworkUrl100"
     }
 }
