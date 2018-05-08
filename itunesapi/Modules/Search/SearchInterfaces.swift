@@ -13,7 +13,9 @@ protocol SearchViewInterface: ViewInterface {
 }
 
 protocol SearchPresenterInterface: PresenterInterface {
+    func startSearch(searchTerm: String)
     func nextPage(searchTerm: String)
+    
     func successFetching(medias: [Media])
     func failureFetching(error: Error?)
     

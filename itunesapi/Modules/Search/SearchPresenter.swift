@@ -21,7 +21,7 @@ final class SearchPresenter {
     }
     
     func viewDidLoad() {
-        _interactor.fetchMedia(for: "iN utERo", page: 1)
+//        _interactor.fetchMedia(for: "iN utERo", page: 1)
     }
 }
 
@@ -32,6 +32,16 @@ final class SearchPresenter {
 
 // MARK: - Actions from UI
 extension SearchPresenter: SearchPresenterInterface {
+    func startSearch(searchTerm: String) {
+        currentPage = 1
+        
+        currentMedias = []
+        _view.medias = []
+        
+        lastTerm = searchTerm
+        _interactor.fetchMedia(for: searchTerm, page: 1)
+    }
+    
     func nextPage(searchTerm: String) {
         guard searchTerm == lastTerm else {
             currentPage = 1

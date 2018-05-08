@@ -4,6 +4,7 @@ final class SearchViewController: UIViewController {
 
     // MARK: - Public properties -
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
 
     var presenter: SearchPresenterInterface!
 
@@ -15,11 +16,15 @@ final class SearchViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        setupSearchController()
     }
 	
     var medias: [Media] = [] {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 }
@@ -69,5 +74,58 @@ extension SearchViewController: UITableViewDelegate {
         
         let media = medias[indexPath.row]
         presenter.didSelect(media: media)
+    }
+}
+
+
+
+
+// MARK: - UISearchController
+extension SearchViewController {
+    func setupSearchController() {
+        let attributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.white
+        ]
+        
+        let appearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+        appearance.setTitleTextAttributes(attributes, for: .normal)
+        
+        searchController.searchBar.placeholder = "Nombre de la canción"
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.barStyle = .black
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.delegate = self
+        
+//        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        definesPresentationContext = true
+    }
+}
+
+
+
+
+extension SearchViewController: UISearchBarDelegate/*, UISearchResultsUpdating*/ {
+//    // Ignoraremos el tipeo, solo buscaremos cuando se presione "intro"
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let term = searchController.searchBar.text?.lowercased() else {
+//            return
+//        }
+//
+//        print("Term: \(term)")
+//    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let term = searchBar.text?.lowercased() else {
+            return
+        }
+        
+        presenter.startSearch(searchTerm: term)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        medias = []
     }
 }

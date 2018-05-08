@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Búsqueda-->
         <scene sceneID="huj-q5-D0O">
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" automaticallyAdjustsScrollViewInsets="NO" id="PGy-kC-Lnn" customClass="SearchViewController" customModule="itunesapi" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,6 +111,9 @@ Escribe en la barra de búsqueda.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kqd-YO-Hv9"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Búsqueda" id="ICL-FS-vK0">
+                        <barButtonItem key="backBarButtonItem" title=" " id="QUv-jg-pvB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="gIz-Vn-g05" id="oGk-e4-kPo"/>
                     </connections>
