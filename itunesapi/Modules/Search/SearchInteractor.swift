@@ -35,14 +35,14 @@ extension SearchInteractor {
 
         guard var queryItems = urlComponents.queryItems else {
             let termItem = URLQueryItem(name: "term", value: term)
-            let pageItem = URLQueryItem(name: "offset", value: String(page * Constants.API.resultsPerPage))
+            let pageItem = URLQueryItem(name: "offset", value: String((page - 1) * Constants.API.resultsPerPage))
             
             urlComponents.queryItems = [termItem, pageItem]
             return urlComponents.url!
         }
         
         let termItem = URLQueryItem(name: "term", value: term)
-        let pageItem = URLQueryItem(name: "offset", value: String(page * Constants.API.resultsPerPage))
+        let pageItem = URLQueryItem(name: "offset", value: String((page - 1) * Constants.API.resultsPerPage))
 
         queryItems.append(contentsOf: [termItem, pageItem])
         urlComponents.queryItems = queryItems
