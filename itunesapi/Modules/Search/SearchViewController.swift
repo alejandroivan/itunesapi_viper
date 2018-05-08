@@ -17,6 +17,18 @@ final class SearchViewController: UIViewController {
     
     
     // MARK: - Private properties -
+    private var showingNoResults: Bool = false
+    lazy private var noResultsLabel: UILabel = {
+        let message = UILabel(frame: CGRect(x: tableView.bounds.minX, y: tableView.bounds.minY, width: tableView.bounds.width, height: tableView.bounds.height))
+        message.backgroundColor = .white
+        
+        message.font = UIFont(name: "AvenirNextCondensed", size: 15.0)
+        message.textAlignment = .center
+        message.text = "No hay resultados."
+        
+        return message
+    }()
+    
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     fileprivate let activityIndicator = UIActivityIndicatorView()
     
@@ -152,6 +164,7 @@ extension SearchViewController: UISearchBarDelegate/*, UISearchResultsUpdating*/
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         medias = []
+        hideNoResultsMessage()
     }
 }
 
@@ -191,5 +204,31 @@ extension SearchViewController {
     
     func hideLoadingIndicator() {
         activityIndicatorCount -= 1
+    }
+}
+
+
+
+
+// MARK: - No results
+extension SearchViewController {
+    func showNoResultsMessage() {
+        noResultsLabel.frame = CGRect(x: tableView.frame.minX, y: tableView.frame.minY, width: tableView.frame.width, height: tableView.frame.height)
+        
+        if !showingNoResults {
+            view.addSubview(noResultsLabel)
+            view.bringSubview(toFront: noResultsLabel)
+            
+            showingNoResults = true
+        }
+    }
+    
+    func hideNoResultsMessage() {
+        guard showingNoResults else {
+            return
+        }
+        
+        showingNoResults = false
+        noResultsLabel.removeFromSuperview()
     }
 }

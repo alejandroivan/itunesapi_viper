@@ -78,6 +78,12 @@ extension SearchPresenter {
         currentMedias.append(contentsOf: medias)
         _view.medias = medias
         _view.hideLoadingIndicator()
+        
+        if medias.count == 0 {
+            _view.showNoResultsMessage()
+        } else {
+            _view.hideNoResultsMessage()
+        }
     }
     
     func failureFetching(error: Error?) {
@@ -88,5 +94,6 @@ extension SearchPresenter {
         
         print("Error: \(error)")
         _view.hideLoadingIndicator()
+        _view.showNoResultsMessage()
     }
 }

@@ -10,8 +10,12 @@ protocol SearchWireframeInterface: WireframeInterface {
 
 protocol SearchViewInterface: ViewInterface {
     var medias: [Media] { get set }
+    
     func showLoadingIndicator()
     func hideLoadingIndicator()
+    
+    func showNoResultsMessage()
+    func hideNoResultsMessage()
 }
 
 protocol SearchPresenterInterface: PresenterInterface {
