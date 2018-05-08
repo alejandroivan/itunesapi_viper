@@ -9,10 +9,22 @@
 /* Begin PBXBuildFile section */
 		6EFDC61B20A1F71B00E8B824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */; };
 		6EFDC61D20A1F71B00E8B824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC61C20A1F71B00E8B824 /* ViewController.swift */; };
-		6EFDC62020A1F71B00E8B824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC61E20A1F71B00E8B824 /* Main.storyboard */; };
 		6EFDC62220A1F72000E8B824 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC62120A1F72000E8B824 /* Assets.xcassets */; };
 		6EFDC62520A1F72000E8B824 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC62320A1F72000E8B824 /* LaunchScreen.storyboard */; };
 		6EFDC63020A1F72000E8B824 /* itunesapiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC62F20A1F72000E8B824 /* itunesapiTests.swift */; };
+		6EFDC64B20A1FE9400E8B824 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC64620A1FE9400E8B824 /* InteractorInterface.swift */; };
+		6EFDC64C20A1FE9400E8B824 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC64720A1FE9400E8B824 /* ViewInterface.swift */; };
+		6EFDC64D20A1FE9400E8B824 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC64820A1FE9400E8B824 /* PresenterInterface.swift */; };
+		6EFDC64E20A1FE9400E8B824 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC64920A1FE9400E8B824 /* BaseWireframe.swift */; };
+		6EFDC64F20A1FE9400E8B824 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC64A20A1FE9400E8B824 /* UIStoryboardExtension.swift */; };
+		6EFDC65620A200CB00E8B824 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC65120A200CB00E8B824 /* SearchInteractor.swift */; };
+		6EFDC65720A200CB00E8B824 /* SearchInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC65220A200CB00E8B824 /* SearchInterfaces.swift */; };
+		6EFDC65820A200CB00E8B824 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC65320A200CB00E8B824 /* SearchPresenter.swift */; };
+		6EFDC65920A200CB00E8B824 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC65420A200CB00E8B824 /* SearchViewController.swift */; };
+		6EFDC65A20A200CB00E8B824 /* SearchWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC65520A200CB00E8B824 /* SearchWireframe.swift */; };
+		6EFDC65C20A200E100E8B824 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC65B20A200E100E8B824 /* Search.storyboard */; };
+		6EFDC65E20A2093500E8B824 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC65D20A2093500E8B824 /* AppNavigationController.swift */; };
+		6EFDC66020A20AEE00E8B824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC65F20A20AEE00E8B824 /* Main.storyboard */; };
 		7D5BDE8A01849E6B52BE8B92 /* Pods_itunesapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9392EB578B8A7E2CC996F2 /* Pods_itunesapi.framework */; };
 		84D4B1214E714F44BA95B659 /* Pods_itunesapiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */; };
 /* End PBXBuildFile section */
@@ -34,15 +46,26 @@
 		6EFDC61720A1F71B00E8B824 /* itunesapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunesapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFDC61C20A1F71B00E8B824 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6EFDC61F20A1F71B00E8B824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6EFDC62120A1F72000E8B824 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EFDC62420A1F72000E8B824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EFDC62620A1F72000E8B824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EFDC62B20A1F72000E8B824 /* itunesapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itunesapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDC62F20A1F72000E8B824 /* itunesapiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunesapiTests.swift; sourceTree = "<group>"; };
 		6EFDC63120A1F72000E8B824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6EFDC63A20A1F77600E8B824 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		6EFDC63B20A1F77800E8B824 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		6EFDC64620A1FE9400E8B824 /* InteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
+		6EFDC64720A1FE9400E8B824 /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
+		6EFDC64820A1FE9400E8B824 /* PresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
+		6EFDC64920A1FE9400E8B824 /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
+		6EFDC64A20A1FE9400E8B824 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
+		6EFDC65120A200CB00E8B824 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		6EFDC65220A200CB00E8B824 /* SearchInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterfaces.swift; sourceTree = "<group>"; };
+		6EFDC65320A200CB00E8B824 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		6EFDC65420A200CB00E8B824 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		6EFDC65520A200CB00E8B824 /* SearchWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWireframe.swift; sourceTree = "<group>"; };
+		6EFDC65B20A200E100E8B824 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		6EFDC65D20A2093500E8B824 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		6EFDC65F20A20AEE00E8B824 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C9C7D02E1395A0AEE5B24C59 /* Pods-itunesapiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesapiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19C5ACF9C7E2C386145CA6B /* Pods-itunesapiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,12 +114,11 @@
 		6EFDC61920A1F71B00E8B824 /* itunesapi */ = {
 			isa = PBXGroup;
 			children = (
-				6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */,
+				6EFDC64320A1FD5100E8B824 /* Application */,
+				6EFDC64220A1FD4900E8B824 /* Common */,
+				6EFDC64120A1FD4000E8B824 /* Resources */,
+				6EFDC64020A1FD3400E8B824 /* Modules */,
 				6EFDC61C20A1F71B00E8B824 /* ViewController.swift */,
-				6EFDC61E20A1F71B00E8B824 /* Main.storyboard */,
-				6EFDC62120A1F72000E8B824 /* Assets.xcassets */,
-				6EFDC62320A1F72000E8B824 /* LaunchScreen.storyboard */,
-				6EFDC62620A1F72000E8B824 /* Info.plist */,
 			);
 			path = itunesapi;
 			sourceTree = "<group>";
@@ -108,6 +130,67 @@
 				6EFDC63120A1F72000E8B824 /* Info.plist */,
 			);
 			path = itunesapiTests;
+			sourceTree = "<group>";
+		};
+		6EFDC64020A1FD3400E8B824 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC65020A2009200E8B824 /* Search */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6EFDC64120A1FD4000E8B824 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC62120A1F72000E8B824 /* Assets.xcassets */,
+				6EFDC62320A1F72000E8B824 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6EFDC64220A1FD4900E8B824 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC64520A1FE7D00E8B824 /* VIPER */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6EFDC64320A1FD5100E8B824 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC62620A1F72000E8B824 /* Info.plist */,
+				6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */,
+				6EFDC65D20A2093500E8B824 /* AppNavigationController.swift */,
+				6EFDC65F20A20AEE00E8B824 /* Main.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6EFDC64520A1FE7D00E8B824 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC64920A1FE9400E8B824 /* BaseWireframe.swift */,
+				6EFDC64620A1FE9400E8B824 /* InteractorInterface.swift */,
+				6EFDC64820A1FE9400E8B824 /* PresenterInterface.swift */,
+				6EFDC64A20A1FE9400E8B824 /* UIStoryboardExtension.swift */,
+				6EFDC64720A1FE9400E8B824 /* ViewInterface.swift */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		6EFDC65020A2009200E8B824 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC65B20A200E100E8B824 /* Search.storyboard */,
+				6EFDC65120A200CB00E8B824 /* SearchInteractor.swift */,
+				6EFDC65220A200CB00E8B824 /* SearchInterfaces.swift */,
+				6EFDC65320A200CB00E8B824 /* SearchPresenter.swift */,
+				6EFDC65420A200CB00E8B824 /* SearchViewController.swift */,
+				6EFDC65520A200CB00E8B824 /* SearchWireframe.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		7E7A38E54FC4CBCC7217E00A /* Pods */ = {
@@ -214,8 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EFDC62520A1F72000E8B824 /* LaunchScreen.storyboard in Resources */,
+				6EFDC65C20A200E100E8B824 /* Search.storyboard in Resources */,
 				6EFDC62220A1F72000E8B824 /* Assets.xcassets in Resources */,
-				6EFDC62020A1F71B00E8B824 /* Main.storyboard in Resources */,
+				6EFDC66020A20AEE00E8B824 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +376,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFDC64B20A1FE9400E8B824 /* InteractorInterface.swift in Sources */,
+				6EFDC65920A200CB00E8B824 /* SearchViewController.swift in Sources */,
 				6EFDC61D20A1F71B00E8B824 /* ViewController.swift in Sources */,
+				6EFDC65820A200CB00E8B824 /* SearchPresenter.swift in Sources */,
+				6EFDC65620A200CB00E8B824 /* SearchInteractor.swift in Sources */,
+				6EFDC64C20A1FE9400E8B824 /* ViewInterface.swift in Sources */,
+				6EFDC64E20A1FE9400E8B824 /* BaseWireframe.swift in Sources */,
 				6EFDC61B20A1F71B00E8B824 /* AppDelegate.swift in Sources */,
+				6EFDC65A20A200CB00E8B824 /* SearchWireframe.swift in Sources */,
+				6EFDC64D20A1FE9400E8B824 /* PresenterInterface.swift in Sources */,
+				6EFDC65720A200CB00E8B824 /* SearchInterfaces.swift in Sources */,
+				6EFDC65E20A2093500E8B824 /* AppNavigationController.swift in Sources */,
+				6EFDC64F20A1FE9400E8B824 /* UIStoryboardExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,15 +411,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6EFDC61E20A1F71B00E8B824 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6EFDC61F20A1F71B00E8B824 /* Base */,
-				6EFDC63A20A1F77600E8B824 /* es */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6EFDC62320A1F72000E8B824 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -460,7 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99QSH5L9VP;
-				INFOPLIST_FILE = itunesapi/Info.plist;
+				INFOPLIST_FILE = "$(PRODUCT_NAME)/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,7 +565,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99QSH5L9VP;
-				INFOPLIST_FILE = itunesapi/Info.plist;
+				INFOPLIST_FILE = "$(PRODUCT_NAME)/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

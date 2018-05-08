@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  itunesapi
-//
-//  Created by dpsmac1 on 08-05-18.
-//  Copyright © 2018 Alejandro Iván. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
