@@ -21,10 +21,12 @@ final class SearchViewController: UIViewController {
     lazy private var noResultsLabel: UILabel = {
         let message = UILabel(frame: CGRect(x: tableView.bounds.minX, y: tableView.bounds.minY, width: tableView.bounds.width, height: tableView.bounds.height))
         message.backgroundColor = .white
+        message.textColor = .darkGray
+
+        message.text = "No hay resultados."
+        message.textAlignment = .center
         
         message.font = UIFont(name: "AvenirNextCondensed", size: 15.0)
-        message.textAlignment = .center
-        message.text = "No hay resultados."
         
         return message
     }()
@@ -63,6 +65,7 @@ final class SearchViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         activityIndicator.frame = CGRect(x: view.center.x - 30, y: view.center.y - 30, width: 60, height: 60)
+        noResultsLabel.frame = CGRect(x: tableView.frame.minX, y: tableView.frame.minY, width: tableView.frame.width, height: tableView.frame.height)
     }
 }
 
@@ -159,6 +162,7 @@ extension SearchViewController: UISearchBarDelegate/*, UISearchResultsUpdating*/
             return
         }
         
+        hideNoResultsMessage()
         presenter.startSearch(searchTerm: term)
     }
     
@@ -213,8 +217,6 @@ extension SearchViewController {
 // MARK: - No results
 extension SearchViewController {
     func showNoResultsMessage() {
-        noResultsLabel.frame = CGRect(x: tableView.frame.minX, y: tableView.frame.minY, width: tableView.frame.width, height: tableView.frame.height)
-        
         if !showingNoResults {
             view.addSubview(noResultsLabel)
             view.bringSubview(toFront: noResultsLabel)
