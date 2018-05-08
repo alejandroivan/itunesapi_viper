@@ -29,7 +29,7 @@ class SearchTableViewCell: UITableViewCell {
         didSet {
             cellImageView.af_cancelImageRequest()
             
-            guard let media = media, let previewUrl = media.urlForPreview else {
+            guard let media = media else {
                 cellImageView.image = nil
                 cellTrackLabel.text = "Error al obtener información"
                 cellArtistLabel.text = nil
@@ -37,7 +37,13 @@ class SearchTableViewCell: UITableViewCell {
             }
             
             cellImageView.image = nil
-            cellImageView.af_setImage(withURL: previewUrl)
+            
+            if let artworkUrl = media.urlForArtwork {
+                cellImageView.af_setImage(withURL: artworkUrl)
+            }
+            
+            cellTrackLabel.text = media.trackName
+            cellArtistLabel.text = media.artistName
         }
     }
 }
