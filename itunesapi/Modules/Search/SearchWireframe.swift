@@ -27,7 +27,8 @@ extension SearchWireframe: SearchWireframeInterface {
     func navigate(to option: SearchNavigationOption) {
         switch option {
         case .details(let media):
-            print("Navigating to: \(media)")
+            let details = DetailsWireframe(media: media)
+            navigationController?.pushWireframe(details)
         }
     }
 }
