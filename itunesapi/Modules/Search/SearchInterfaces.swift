@@ -1,6 +1,7 @@
 import UIKit
 
 enum SearchNavigationOption {
+    case details(Media)
 }
 
 protocol SearchWireframeInterface: WireframeInterface {
@@ -15,6 +16,8 @@ protocol SearchPresenterInterface: PresenterInterface {
     func nextPage(searchTerm: String)
     func successFetching(medias: [Media])
     func failureFetching(error: Error?)
+    
+    func didSelect(media: Media)
 }
 
 protocol SearchInteractorInterface: InteractorInterface {

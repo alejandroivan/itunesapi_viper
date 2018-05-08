@@ -64,5 +64,10 @@ extension SearchViewController: UITableViewDataSource {
 
 
 extension SearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let media = medias[indexPath.row]
+        presenter.didSelect(media: media)
+    }
 }

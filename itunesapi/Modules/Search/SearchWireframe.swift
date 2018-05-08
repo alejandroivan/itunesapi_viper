@@ -14,6 +14,7 @@ final class SearchWireframe: BaseWireframe {
         
         let interactor = SearchInteractor()
         let presenter = SearchPresenter(wireframe: self, view: moduleViewController, interactor: interactor)
+        interactor.presenter = presenter
         moduleViewController.presenter = presenter
     }
 
@@ -24,5 +25,9 @@ final class SearchWireframe: BaseWireframe {
 extension SearchWireframe: SearchWireframeInterface {
 
     func navigate(to option: SearchNavigationOption) {
+        switch option {
+        case .details(let media):
+            print("Navigating to: \(media)")
+        }
     }
 }

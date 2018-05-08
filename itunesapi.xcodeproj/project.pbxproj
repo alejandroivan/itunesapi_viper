@@ -27,6 +27,8 @@
 		6EFDC66020A20AEE00E8B824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC65F20A20AEE00E8B824 /* Main.storyboard */; };
 		6EFDC66320A20D4E00E8B824 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66220A20D4E00E8B824 /* Constants.swift */; };
 		6EFDC66620A20E3800E8B824 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66520A20E3800E8B824 /* ApiClient.swift */; };
+		6EFDC66920A2159300E8B824 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66820A2159300E8B824 /* Media.swift */; };
+		6EFDC66C20A2236900E8B824 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66B20A2236900E8B824 /* SearchTableViewCell.swift */; };
 		7D5BDE8A01849E6B52BE8B92 /* Pods_itunesapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9392EB578B8A7E2CC996F2 /* Pods_itunesapi.framework */; };
 		84D4B1214E714F44BA95B659 /* Pods_itunesapiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,8 @@
 		6EFDC65F20A20AEE00E8B824 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6EFDC66220A20D4E00E8B824 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6EFDC66520A20E3800E8B824 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		6EFDC66820A2159300E8B824 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		6EFDC66B20A2236900E8B824 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		C9C7D02E1395A0AEE5B24C59 /* Pods-itunesapiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesapiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19C5ACF9C7E2C386145CA6B /* Pods-itunesapiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			children = (
 				6EFDC64520A1FE7D00E8B824 /* VIPER */,
 				6EFDC66420A20E2A00E8B824 /* API */,
+				6EFDC66720A2156600E8B824 /* DataModels */,
 				6EFDC66220A20D4E00E8B824 /* Constants.swift */,
 			);
 			path = Common;
@@ -189,6 +194,7 @@
 		6EFDC65020A2009200E8B824 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				6EFDC66A20A2235B00E8B824 /* Views */,
 				6EFDC65B20A200E100E8B824 /* Search.storyboard */,
 				6EFDC65120A200CB00E8B824 /* SearchInteractor.swift */,
 				6EFDC65220A200CB00E8B824 /* SearchInterfaces.swift */,
@@ -205,6 +211,22 @@
 				6EFDC66520A20E3800E8B824 /* ApiClient.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		6EFDC66720A2156600E8B824 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC66820A2159300E8B824 /* Media.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		6EFDC66A20A2235B00E8B824 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC66B20A2236900E8B824 /* SearchTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7E7A38E54FC4CBCC7217E00A /* Pods */ = {
@@ -396,10 +418,12 @@
 				6EFDC65820A200CB00E8B824 /* SearchPresenter.swift in Sources */,
 				6EFDC65620A200CB00E8B824 /* SearchInteractor.swift in Sources */,
 				6EFDC64C20A1FE9400E8B824 /* ViewInterface.swift in Sources */,
+				6EFDC66920A2159300E8B824 /* Media.swift in Sources */,
 				6EFDC64E20A1FE9400E8B824 /* BaseWireframe.swift in Sources */,
 				6EFDC61B20A1F71B00E8B824 /* AppDelegate.swift in Sources */,
 				6EFDC65A20A200CB00E8B824 /* SearchWireframe.swift in Sources */,
 				6EFDC64D20A1FE9400E8B824 /* PresenterInterface.swift in Sources */,
+				6EFDC66C20A2236900E8B824 /* SearchTableViewCell.swift in Sources */,
 				6EFDC65720A200CB00E8B824 /* SearchInterfaces.swift in Sources */,
 				6EFDC66320A20D4E00E8B824 /* Constants.swift in Sources */,
 				6EFDC65E20A2093500E8B824 /* AppNavigationController.swift in Sources */,
