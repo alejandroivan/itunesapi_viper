@@ -92,7 +92,7 @@ extension SearchPresenter {
             return
         }
         
-        print("Error: \(error)")
+        print("ERROR: \(error)")
         _view.hideLoadingIndicator()
         _view.showNoResultsMessage()
     }
