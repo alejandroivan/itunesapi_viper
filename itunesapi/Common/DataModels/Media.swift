@@ -3,6 +3,8 @@ import Foundation
 struct Media: Decodable {
     let wrapperType: String
     let artistName: String
+    
+    let collectionId: Int?
     let collectionName: String?
 
     let kind: String?
@@ -39,7 +41,7 @@ extension Media {
 
 extension Media {
     enum CodingKeys: String, CodingKey {
-        case wrapperType, kind, trackName, artistName, collectionName, previewUrl, trackId
+        case wrapperType, kind, trackName, artistName, collectionId, collectionName, previewUrl, trackId
         case artwork = "artworkUrl100"
     }
 }
