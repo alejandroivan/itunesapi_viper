@@ -38,7 +38,12 @@ extension DetailsPresenter: DetailsPresenterInterface {
     }
     
     func failureFetchingAlbum(error: Error?) {
-        print("ERROR: \(String(describing: error))")
+        if let error = error {
+            print("ERROR: \(String(describing: error))")
+        } else {
+            print("Error desconocido")
+        }
+        
         _view.album = nil
         _view.tracks = []
     }

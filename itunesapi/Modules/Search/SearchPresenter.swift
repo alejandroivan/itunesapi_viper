@@ -67,7 +67,12 @@ extension SearchPresenter: SearchPresenterInterface {
 // MARK: - Responses from Interactor
 extension SearchPresenter {
     func successFetching(medias: [Media]) {
-        currentMedias.append(contentsOf: medias)
+        // Se ignorará medias cuyo "collectionId" es nil, ya que no se puede obtener detalles de álbum sin él
+        // Por algún motivo llegan trailer de películas aunque específicamente se pidió "song", así que se eliminará esos resultados indeseados
+        // Ejemplo: Buscar "sandman" y verificar "kind" de Spiderman: Homecoming
+        
+        let filtered = medias.filter { $0.collectionId != nil && $0.kind != nil && $0.kind! == "song" }
+        currentMedias.append(contentsOf: filtered)
         
         _view.medias = currentMedias
         _view.hideLoadingIndicator()
