@@ -23,26 +23,37 @@ final class SearchViewController: UIViewController {
         let message = UILabel(frame: CGRect(x: tableView.bounds.minX, y: tableView.bounds.minY, width: tableView.bounds.width, height: tableView.bounds.height))
         message.backgroundColor = .white
         message.textColor = .darkGray
-
         message.text = "No hay resultados."
         message.textAlignment = .center
-        
         message.font = UIFont(name: "AvenirNextCondensed", size: 15.0)
-        
         return message
     }()
     
     fileprivate let searchController = UISearchController(searchResultsController: nil)
-    fileprivate let activityIndicator = UIActivityIndicatorView()
+    lazy private var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        indicator.hidesWhenStopped = true
+        indicator.clipsToBounds = true
+        indicator.layer.cornerRadius = 8.0
+        
+        return indicator
+    }()
     
-    fileprivate var activityIndicatorCount: Int = 0 { // Cuando es 0, se oculta
+    fileprivate var activityIndicatorCount: UInt = 0 { // Cuando es 0, se oculta
         didSet {
             if activityIndicatorCount != 0 {
                 searchController.searchBar.isUserInteractionEnabled = false
                 view.isUserInteractionEnabled = false
+                
+                view.addSubview(activityIndicator)
+                view.bringSubview(toFront: activityIndicator)
+                
                 activityIndicator.startAnimating()
             } else {
                 activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+                
                 view.isUserInteractionEnabled = true
                 searchController.searchBar.isUserInteractionEnabled = true
             }
@@ -58,7 +69,6 @@ final class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        setupActivityIndicator()
         setupInfiniteScrolling()
         setupSearchController()
     }
@@ -83,6 +93,7 @@ extension SearchViewController: UITableViewDataSource {
     static let contentCellIdentifier = "SearchTableViewCell"
     static let emptyCellIdentifier = "SearchEmptyTableViewCell"
     
+    // MARK: Data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard medias.count != 0 else {
             return 1
@@ -110,6 +121,7 @@ extension SearchViewController: UITableViewDataSource {
 
 
 extension SearchViewController: UITableViewDelegate {
+    // MARK: Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -207,14 +219,6 @@ extension SearchViewController {
 
 // MARK: - Activity indicator
 extension SearchViewController {
-    func setupActivityIndicator() {
-        activityIndicator.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.clipsToBounds = true
-        activityIndicator.layer.cornerRadius = 8.0
-        view.addSubview(activityIndicator)
-    }
-    
     func showLoadingIndicator() {
         activityIndicatorCount += 1
     }
