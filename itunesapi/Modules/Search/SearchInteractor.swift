@@ -31,7 +31,7 @@ extension SearchInteractor: SearchInteractorInterface {
 // MARK: - Search URL
 extension SearchInteractor {
     func searchURL(for term: String, page: Int = 1) -> URL {
-        var urlComponents = URLComponents(url: Constants.API.baseURL, resolvingAgainstBaseURL: true)!
+        var urlComponents = URLComponents(url: Constants.API.searchURL, resolvingAgainstBaseURL: true)!
 
         guard var queryItems = urlComponents.queryItems else {
             let termItem = URLQueryItem(name: "term", value: term)

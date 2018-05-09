@@ -21,7 +21,11 @@ protocol DetailsViewInterface: ViewInterface {
 }
 
 protocol DetailsPresenterInterface: PresenterInterface {
+    func loadAlbumDetails(item: Media)
+    func successFetchingAlbum(album: Album)
+    func failureFetchingAlbum(error: Error?)
 }
 
 protocol DetailsInteractorInterface: InteractorInterface {
+    func fetchAlbumDetails(for item: Media)
 }

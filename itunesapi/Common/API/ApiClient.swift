@@ -3,7 +3,7 @@ import Alamofire
 
 class ApiClient {
     static var baseURL: URL {
-        return Constants.API.baseURL
+        return Constants.API.searchURL
     }
     
     static func get(_ path: String, success: @escaping (Data) -> Void, failure: @escaping (Error?) -> Void) {
