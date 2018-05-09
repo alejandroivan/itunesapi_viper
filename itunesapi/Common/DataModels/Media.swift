@@ -1,6 +1,6 @@
 import Foundation
 
-struct Media: Decodable {
+struct Media: Codable {
     let wrapperType: String
     let artistName: String
     
