@@ -3,7 +3,7 @@ import Foundation
 struct Media: Decodable {
     let wrapperType: String
     let artistName: String
-    let collectionName: String
+    let collectionName: String?
 
     let kind: String?
     let trackId: Int?

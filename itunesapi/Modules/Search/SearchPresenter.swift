@@ -46,21 +46,13 @@ extension SearchPresenter: SearchPresenterInterface {
     
     func nextPage(searchTerm: String) {
         guard searchTerm == lastTerm else {
-            currentPage = 1
-            
-            currentMedias = []
-            _view.medias = []
-            
-            lastTerm = searchTerm
-            _interactor.fetchMedia(for: searchTerm, page: 1)
-            
+            startSearch(searchTerm: searchTerm)
             return
         }
         
         currentPage += 1
         lastTerm = searchTerm
         
-        _view.showLoadingIndicator()
         _interactor.fetchMedia(for: searchTerm, page: currentPage)
     }
     
@@ -76,14 +68,11 @@ extension SearchPresenter: SearchPresenterInterface {
 extension SearchPresenter {
     func successFetching(medias: [Media]) {
         currentMedias.append(contentsOf: medias)
-        _view.medias = medias
+        
+        _view.medias = currentMedias
         _view.hideLoadingIndicator()
         
-        if medias.count == 0 {
-            _view.showNoResultsMessage()
-        } else {
-            _view.hideNoResultsMessage()
-        }
+        showNoResultsIfNeeded()
     }
     
     func failureFetching(error: Error?) {
@@ -93,7 +82,16 @@ extension SearchPresenter {
         }
         
         print("ERROR: \(error)")
+        
         _view.hideLoadingIndicator()
-        _view.showNoResultsMessage()
+        showNoResultsIfNeeded()
+    }
+    
+    private func showNoResultsIfNeeded() {
+        if currentMedias.count == 0 {
+            _view.showNoResultsMessage()
+        } else {
+            _view.hideNoResultsMessage()
+        }
     }
 }

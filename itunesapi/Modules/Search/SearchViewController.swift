@@ -10,6 +10,7 @@ final class SearchViewController: UIViewController {
     var medias: [Media] = [] {
         didSet {
             DispatchQueue.main.async {
+                self.tableView.infiniteScrollingView?.stopAnimating()
                 self.tableView.reloadData()
             }
         }
@@ -175,12 +176,24 @@ extension SearchViewController: UISearchBarDelegate/*, UISearchResultsUpdating*/
 
 
 
-// MARK: - Infinite scrolling (paginación
+// MARK: - Infinite scrolling (paginación)
 extension SearchViewController {
     func setupInfiniteScrolling() {
         tableView.addInfiniteScrollingWithHandler {
             guard let term = self.searchController.searchBar.text?.lowercased() else {
                 self.medias = []
+                
+                DispatchQueue.main.async {
+                    self.tableView.infiniteScrollingView?.stopAnimating()
+                }
+                
+                return
+            }
+            
+            guard self.medias.count > 0 else {
+                DispatchQueue.main.async {
+                    self.tableView.infiniteScrollingView?.stopAnimating()
+                }
                 return
             }
             
@@ -207,7 +220,9 @@ extension SearchViewController {
     }
     
     func hideLoadingIndicator() {
-        activityIndicatorCount -= 1
+        if activityIndicatorCount > 0 {
+            activityIndicatorCount -= 1
+        }
     }
 }
 
@@ -217,12 +232,14 @@ extension SearchViewController {
 // MARK: - No results
 extension SearchViewController {
     func showNoResultsMessage() {
-        if !showingNoResults {
-            view.addSubview(noResultsLabel)
-            view.bringSubview(toFront: noResultsLabel)
-            
-            showingNoResults = true
+        guard !showingNoResults else {
+            return
         }
+        
+        view.addSubview(noResultsLabel)
+        view.bringSubview(toFront: noResultsLabel)
+        
+        showingNoResults = true
     }
     
     func hideNoResultsMessage() {
