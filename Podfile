@@ -9,7 +9,7 @@ target 'itunesapi' do
   # Pods for itunesapi
   pod 'Alamofire', '~> 4.7' # Conectividad
   pod 'AlamofireImage', '~> 3.3' # Carga asíncrona de imágenes en UIImageView
-  pod 'ICSPullToRefresh', '~> 0.6'
+  pod 'ICSPullToRefresh', '~> 0.6' # Infinite scrolling (paginación) de resultados de búsqueda
 
 
   target 'itunesapiTests' do
