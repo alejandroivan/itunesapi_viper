@@ -11,6 +11,7 @@
 import UIKit
 
 enum DetailsNavigationOption {
+    case preview(Media)
 }
 
 protocol DetailsWireframeInterface: WireframeInterface {
@@ -26,6 +27,8 @@ protocol DetailsPresenterInterface: PresenterInterface {
     func loadAlbumDetails(item: Media)
     func successFetchingAlbum(album: Album)
     func failureFetchingAlbum(error: Error?)
+    
+    func didSelect(item: Media)
 }
 
 protocol DetailsInteractorInterface: InteractorInterface {

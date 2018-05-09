@@ -25,5 +25,14 @@ final class DetailsWireframe: BaseWireframe {
 extension DetailsWireframe: DetailsWireframeInterface {
 
     func navigate(to option: DetailsNavigationOption) {
+        switch option {
+        case .preview(let song):
+            showPlayer(song: song)
+        }
+    }
+    
+    func showPlayer(song: Media) {
+        let player = PreviewPlayerWireframe(song: song)
+        viewController.presentWireframe(player)
     }
 }

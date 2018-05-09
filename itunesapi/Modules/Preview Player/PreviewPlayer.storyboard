@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Preview Player View Controller-->
+        <scene sceneID="5kN-SH-IFa">
+            <objects>
+                <viewController storyboardIdentifier="PreviewPlayerViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="3c6-pv-4h2" customClass="PreviewPlayerViewController" customModule="itunesapi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="JZ5-iw-fsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICj-fV-bse">
+                                <rect key="frame" x="8" y="213.5" width="359" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vi-Ni-Rdf">
+                                        <rect key="frame" x="315" y="8" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8Vi-Ni-Rdf" secondAttribute="height" multiplier="1:1" id="IoL-kq-GCe"/>
+                                            <constraint firstAttribute="width" constant="36" id="LVi-s5-Sid"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="previewplayer_close"/>
+                                        <connections>
+                                            <action selector="closePopup" destination="3c6-pv-4h2" eventType="touchUpInside" id="qEj-d5-rTf"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qoK-v9-Jbt">
+                                        <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qoK-v9-Jbt" secondAttribute="height" multiplier="1:1" id="ZAc-YW-7br"/>
+                                            <constraint firstAttribute="width" constant="100" id="rzQ-Ib-oxJ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título de la canción" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBx-KW-abc">
+                                        <rect key="frame" x="116" y="48.5" width="191" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8Vi-Ni-Rdf" firstAttribute="top" secondItem="ICj-fV-bse" secondAttribute="top" constant="8" id="2VT-iW-fvG"/>
+                                    <constraint firstItem="8Vi-Ni-Rdf" firstAttribute="leading" secondItem="aBx-KW-abc" secondAttribute="trailing" constant="8" id="4Yu-1k-C9D"/>
+                                    <constraint firstAttribute="height" constant="240" id="8EW-Dk-Maa"/>
+                                    <constraint firstItem="aBx-KW-abc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ICj-fV-bse" secondAttribute="top" constant="8" id="GQm-Xx-soc"/>
+                                    <constraint firstItem="qoK-v9-Jbt" firstAttribute="leading" secondItem="ICj-fV-bse" secondAttribute="leading" constant="8" id="PWN-iQ-7uF"/>
+                                    <constraint firstItem="aBx-KW-abc" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="qoK-v9-Jbt" secondAttribute="bottom" id="YKm-q0-xZl"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Vi-Ni-Rdf" secondAttribute="trailing" constant="8" id="cES-ax-dqB"/>
+                                    <constraint firstItem="aBx-KW-abc" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Vi-Ni-Rdf" secondAttribute="bottom" id="j9I-A1-7IO"/>
+                                    <constraint firstItem="qoK-v9-Jbt" firstAttribute="top" secondItem="ICj-fV-bse" secondAttribute="top" constant="8" id="sDm-lu-Dlm"/>
+                                    <constraint firstItem="aBx-KW-abc" firstAttribute="leading" secondItem="qoK-v9-Jbt" secondAttribute="trailing" constant="8" id="xk3-eR-rxH"/>
+                                    <constraint firstItem="aBx-KW-abc" firstAttribute="centerY" secondItem="qoK-v9-Jbt" secondAttribute="centerY" id="yFN-cU-hwQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c2i-VL-xq2" firstAttribute="trailing" secondItem="ICj-fV-bse" secondAttribute="trailing" constant="8" id="TZa-wT-wJe"/>
+                            <constraint firstItem="ICj-fV-bse" firstAttribute="centerY" secondItem="JZ5-iw-fsQ" secondAttribute="centerY" id="gXA-yT-bkb"/>
+                            <constraint firstItem="ICj-fV-bse" firstAttribute="leading" secondItem="c2i-VL-xq2" secondAttribute="leading" constant="8" id="nC5-FF-mff"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c2i-VL-xq2"/>
+                    </view>
+                    <connections>
+                        <outlet property="coverImageView" destination="qoK-v9-Jbt" id="SmJ-4E-ZKT"/>
+                        <outlet property="playerContainerView" destination="ICj-fV-bse" id="U0W-C9-ny2"/>
+                        <outlet property="trackNameLabel" destination="aBx-KW-abc" id="rXb-tr-w5e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sA-5J-Tji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="206"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="previewplayer_close" width="36" height="36"/>
+    </resources>
+</document>

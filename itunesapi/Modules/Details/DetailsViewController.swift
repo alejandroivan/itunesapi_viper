@@ -94,6 +94,6 @@ extension DetailsViewController: UITableViewDelegate {
             return
         }
         
-        print("Playing: \(track)")
+        presenter.didSelect(item: track)
     }
 }

@@ -26,9 +26,9 @@ final class DetailsPresenter {
 
 // MARK: - Extensions -
 
+// MARK: Album details
 extension DetailsPresenter: DetailsPresenterInterface {
     func loadAlbumDetails(item: Media) {
-        // https://itunes.apple.com/lookup?id=444284950&entity=song
         _interactor.fetchAlbumDetails(for: item)
     }
     
@@ -47,5 +47,18 @@ extension DetailsPresenter: DetailsPresenterInterface {
         _view.album = nil
         _view.tracks = []
     }
-    
+}
+
+
+
+
+// MARK: Previews
+extension DetailsPresenter {
+    func didSelect(item: Media) {
+        guard let _ = item.urlForPreview else {
+            return
+        }
+        
+        _wireframe.navigate(to: .preview(item))
+    }
 }

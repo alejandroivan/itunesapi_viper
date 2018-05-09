@@ -36,6 +36,12 @@
 		6EFDC66620A20E3800E8B824 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66520A20E3800E8B824 /* ApiClient.swift */; };
 		6EFDC66920A2159300E8B824 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66820A2159300E8B824 /* Media.swift */; };
 		6EFDC66C20A2236900E8B824 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC66B20A2236900E8B824 /* SearchTableViewCell.swift */; };
+		6EFDC66F20A33ABD00E8B824 /* PreviewPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDC66E20A33ABD00E8B824 /* PreviewPlayer.storyboard */; };
+		6EFDC67520A33ACA00E8B824 /* PreviewPlayerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC67020A33ACA00E8B824 /* PreviewPlayerInteractor.swift */; };
+		6EFDC67620A33ACA00E8B824 /* PreviewPlayerInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC67120A33ACA00E8B824 /* PreviewPlayerInterfaces.swift */; };
+		6EFDC67720A33ACA00E8B824 /* PreviewPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC67220A33ACA00E8B824 /* PreviewPlayerPresenter.swift */; };
+		6EFDC67820A33ACA00E8B824 /* PreviewPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC67320A33ACA00E8B824 /* PreviewPlayerViewController.swift */; };
+		6EFDC67920A33ACA00E8B824 /* PreviewPlayerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDC67420A33ACA00E8B824 /* PreviewPlayerWireframe.swift */; };
 		7D5BDE8A01849E6B52BE8B92 /* Pods_itunesapi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9392EB578B8A7E2CC996F2 /* Pods_itunesapi.framework */; };
 		84D4B1214E714F44BA95B659 /* Pods_itunesapiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +94,12 @@
 		6EFDC66520A20E3800E8B824 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		6EFDC66820A2159300E8B824 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		6EFDC66B20A2236900E8B824 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		6EFDC66E20A33ABD00E8B824 /* PreviewPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPlayer.storyboard; sourceTree = "<group>"; };
+		6EFDC67020A33ACA00E8B824 /* PreviewPlayerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerInteractor.swift; sourceTree = "<group>"; };
+		6EFDC67120A33ACA00E8B824 /* PreviewPlayerInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerInterfaces.swift; sourceTree = "<group>"; };
+		6EFDC67220A33ACA00E8B824 /* PreviewPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerPresenter.swift; sourceTree = "<group>"; };
+		6EFDC67320A33ACA00E8B824 /* PreviewPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerViewController.swift; sourceTree = "<group>"; };
+		6EFDC67420A33ACA00E8B824 /* PreviewPlayerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerWireframe.swift; sourceTree = "<group>"; };
 		C9C7D02E1395A0AEE5B24C59 /* Pods-itunesapiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesapiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19C5ACF9C7E2C386145CA6B /* Pods-itunesapiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 			children = (
 				6EFDC65020A2009200E8B824 /* Search */,
 				2C3AB33F20A268BB00DFB9F0 /* Details */,
+				6EFDC66D20A33AA200E8B824 /* Preview Player */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -264,6 +277,19 @@
 				6EFDC66B20A2236900E8B824 /* SearchTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6EFDC66D20A33AA200E8B824 /* Preview Player */ = {
+			isa = PBXGroup;
+			children = (
+				6EFDC66E20A33ABD00E8B824 /* PreviewPlayer.storyboard */,
+				6EFDC67020A33ACA00E8B824 /* PreviewPlayerInteractor.swift */,
+				6EFDC67120A33ACA00E8B824 /* PreviewPlayerInterfaces.swift */,
+				6EFDC67220A33ACA00E8B824 /* PreviewPlayerPresenter.swift */,
+				6EFDC67320A33ACA00E8B824 /* PreviewPlayerViewController.swift */,
+				6EFDC67420A33ACA00E8B824 /* PreviewPlayerWireframe.swift */,
+			);
+			path = "Preview Player";
 			sourceTree = "<group>";
 		};
 		7E7A38E54FC4CBCC7217E00A /* Pods */ = {
@@ -369,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFDC66F20A33ABD00E8B824 /* PreviewPlayer.storyboard in Resources */,
 				2C3AB34B20A2698A00DFB9F0 /* Details.storyboard in Resources */,
 				6EFDC62520A1F72000E8B824 /* LaunchScreen.storyboard in Resources */,
 				6EFDC65C20A200E100E8B824 /* Search.storyboard in Resources */,
@@ -452,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFDC67920A33ACA00E8B824 /* PreviewPlayerWireframe.swift in Sources */,
 				6EFDC64B20A1FE9400E8B824 /* InteractorInterface.swift in Sources */,
 				6EFDC65920A200CB00E8B824 /* SearchViewController.swift in Sources */,
 				6EFDC65820A200CB00E8B824 /* SearchPresenter.swift in Sources */,
@@ -459,9 +487,12 @@
 				2C3AB34520A2697A00DFB9F0 /* DetailsInteractor.swift in Sources */,
 				6EFDC64C20A1FE9400E8B824 /* ViewInterface.swift in Sources */,
 				6EFDC66920A2159300E8B824 /* Media.swift in Sources */,
+				6EFDC67620A33ACA00E8B824 /* PreviewPlayerInterfaces.swift in Sources */,
+				6EFDC67720A33ACA00E8B824 /* PreviewPlayerPresenter.swift in Sources */,
 				6EFDC64E20A1FE9400E8B824 /* BaseWireframe.swift in Sources */,
 				6EFDC61B20A1F71B00E8B824 /* AppDelegate.swift in Sources */,
 				2C3AB34720A2697A00DFB9F0 /* DetailsPresenter.swift in Sources */,
+				6EFDC67520A33ACA00E8B824 /* PreviewPlayerInteractor.swift in Sources */,
 				6EFDC65A20A200CB00E8B824 /* SearchWireframe.swift in Sources */,
 				6EFDC64D20A1FE9400E8B824 /* PresenterInterface.swift in Sources */,
 				6EFDC66C20A2236900E8B824 /* SearchTableViewCell.swift in Sources */,
@@ -469,6 +500,7 @@
 				6EFDC66320A20D4E00E8B824 /* Constants.swift in Sources */,
 				2C3AB34920A2697A00DFB9F0 /* DetailsWireframe.swift in Sources */,
 				6EFDC65E20A2093500E8B824 /* AppNavigationController.swift in Sources */,
+				6EFDC67820A33ACA00E8B824 /* PreviewPlayerViewController.swift in Sources */,
 				2C3AB35120A29B9C00DFB9F0 /* DetailsTableViewCell.swift in Sources */,
 				6EFDC64F20A1FE9400E8B824 /* UIStoryboardExtension.swift in Sources */,
 				2C3AB34620A2697A00DFB9F0 /* DetailsInterfaces.swift in Sources */,
