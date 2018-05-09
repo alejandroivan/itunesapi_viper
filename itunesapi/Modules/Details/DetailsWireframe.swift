@@ -26,6 +26,9 @@ extension DetailsWireframe: DetailsWireframeInterface {
 
     func navigate(to option: DetailsNavigationOption) {
         switch option {
+        case .goBack:
+            navigationController?.popViewController(animated: true)
+            
         case .preview(let song):
             showPlayer(song: song)
         }

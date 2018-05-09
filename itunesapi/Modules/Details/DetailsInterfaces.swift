@@ -11,6 +11,7 @@
 import UIKit
 
 enum DetailsNavigationOption {
+    case goBack
     case preview(Media)
 }
 
@@ -21,6 +22,8 @@ protocol DetailsWireframeInterface: WireframeInterface {
 protocol DetailsViewInterface: ViewInterface {
     var album: Media? { get set }
     var tracks: [Media]? { get set }
+    
+    func showAlert(_ alertController: UIAlertController)
 }
 
 protocol DetailsPresenterInterface: PresenterInterface {

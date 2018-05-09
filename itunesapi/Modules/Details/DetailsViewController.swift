@@ -57,6 +57,9 @@ final class DetailsViewController: UIViewController {
 // MARK: - Extensions -
 
 extension DetailsViewController: DetailsViewInterface {
+    func showAlert(_ alertController: UIAlertController) {
+        navigationController?.present(alertController, animated: true, completion: nil)
+    }
 }
 
 

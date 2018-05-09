@@ -46,6 +46,8 @@ extension DetailsPresenter: DetailsPresenterInterface {
         
         _view.album = nil
         _view.tracks = []
+        
+        showErrorMessage()
     }
 }
 
@@ -60,5 +62,23 @@ extension DetailsPresenter {
         }
         
         _wireframe.navigate(to: .preview(item))
+    }
+}
+
+
+
+
+// MARK: - Error message
+extension DetailsPresenter {
+    fileprivate func showErrorMessage() {
+        let title = "Error al conectar"
+        let message = "No se ha podido cargar la información del álbum. Verifica tu conexión a Internet e inténtalo nuevamente."
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Volver", style: .cancel, handler: { action in
+            self._wireframe.navigate(to: .goBack)
+        }))
+        
+        _view.showAlert(alertController)
     }
 }
