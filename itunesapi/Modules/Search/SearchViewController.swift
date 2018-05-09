@@ -18,6 +18,8 @@ final class SearchViewController: UIViewController {
     
     
     // MARK: - Private properties -
+    
+    // MARK: No Results message
     private var showingNoResults: Bool = false
     lazy private var noResultsLabel: UILabel = {
         let message = UILabel(frame: CGRect(x: tableView.bounds.minX, y: tableView.bounds.minY, width: tableView.bounds.width, height: tableView.bounds.height))
@@ -29,7 +31,10 @@ final class SearchViewController: UIViewController {
         return message
     }()
     
+    // MARK: Search controller
     fileprivate let searchController = UISearchController(searchResultsController: nil)
+    
+    // MARK: Activity Indicator
     lazy private var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.backgroundColor = UIColor.black.withAlphaComponent(0.6)
