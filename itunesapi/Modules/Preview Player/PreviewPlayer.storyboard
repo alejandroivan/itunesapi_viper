@@ -52,17 +52,52 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwT-2N-8G0">
+                                        <rect key="frame" x="8" y="212" width="60" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="3cX-Ge-qnp"/>
+                                            <constraint firstAttribute="height" constant="20" id="THO-hG-yiS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRH-lo-Sxg">
+                                        <rect key="frame" x="291" y="212" width="60" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="BJh-PS-IGn"/>
+                                            <constraint firstAttribute="height" constant="20" id="u5h-pd-6RH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aCf-Fo-tHJ">
+                                        <rect key="frame" x="6" y="183" width="347" height="30"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="f7r-dL-gWc"/>
+                                        </constraints>
+                                        <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="8Vi-Ni-Rdf" firstAttribute="top" secondItem="ICj-fV-bse" secondAttribute="top" constant="8" id="2VT-iW-fvG"/>
                                     <constraint firstItem="8Vi-Ni-Rdf" firstAttribute="leading" secondItem="aBx-KW-abc" secondAttribute="trailing" constant="8" id="4Yu-1k-C9D"/>
                                     <constraint firstAttribute="height" constant="240" id="8EW-Dk-Maa"/>
+                                    <constraint firstAttribute="trailing" secondItem="vRH-lo-Sxg" secondAttribute="trailing" constant="8" id="D96-nD-aLy"/>
                                     <constraint firstItem="aBx-KW-abc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ICj-fV-bse" secondAttribute="top" constant="8" id="GQm-Xx-soc"/>
+                                    <constraint firstItem="aCf-Fo-tHJ" firstAttribute="leading" secondItem="ICj-fV-bse" secondAttribute="leading" constant="8" id="O5R-8Y-lS2"/>
                                     <constraint firstItem="qoK-v9-Jbt" firstAttribute="leading" secondItem="ICj-fV-bse" secondAttribute="leading" constant="8" id="PWN-iQ-7uF"/>
                                     <constraint firstItem="aBx-KW-abc" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="qoK-v9-Jbt" secondAttribute="bottom" id="YKm-q0-xZl"/>
+                                    <constraint firstItem="fwT-2N-8G0" firstAttribute="leading" secondItem="ICj-fV-bse" secondAttribute="leading" constant="8" id="ZvU-q0-PGz"/>
+                                    <constraint firstAttribute="bottom" secondItem="vRH-lo-Sxg" secondAttribute="bottom" constant="8" id="aiU-y7-HS4"/>
                                     <constraint firstAttribute="trailing" secondItem="8Vi-Ni-Rdf" secondAttribute="trailing" constant="8" id="cES-ax-dqB"/>
+                                    <constraint firstItem="fwT-2N-8G0" firstAttribute="top" secondItem="aCf-Fo-tHJ" secondAttribute="bottom" id="eq4-Ot-qj8"/>
                                     <constraint firstItem="aBx-KW-abc" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Vi-Ni-Rdf" secondAttribute="bottom" id="j9I-A1-7IO"/>
+                                    <constraint firstAttribute="bottom" secondItem="fwT-2N-8G0" secondAttribute="bottom" constant="8" id="nQJ-0j-PUr"/>
+                                    <constraint firstAttribute="trailing" secondItem="aCf-Fo-tHJ" secondAttribute="trailing" constant="8" id="qB6-cO-rVL"/>
                                     <constraint firstItem="qoK-v9-Jbt" firstAttribute="top" secondItem="ICj-fV-bse" secondAttribute="top" constant="8" id="sDm-lu-Dlm"/>
                                     <constraint firstItem="aBx-KW-abc" firstAttribute="leading" secondItem="qoK-v9-Jbt" secondAttribute="trailing" constant="8" id="xk3-eR-rxH"/>
                                     <constraint firstItem="aBx-KW-abc" firstAttribute="centerY" secondItem="qoK-v9-Jbt" secondAttribute="centerY" id="yFN-cU-hwQ"/>
@@ -84,7 +119,10 @@
                     </view>
                     <connections>
                         <outlet property="coverImageView" destination="qoK-v9-Jbt" id="SmJ-4E-ZKT"/>
+                        <outlet property="playedTimeLabel" destination="fwT-2N-8G0" id="MMV-Ad-4qf"/>
                         <outlet property="playerContainerView" destination="ICj-fV-bse" id="U0W-C9-ny2"/>
+                        <outlet property="seekSlider" destination="aCf-Fo-tHJ" id="42I-Hz-gmK"/>
+                        <outlet property="totalTimeLabel" destination="vRH-lo-Sxg" id="Ur3-zQ-U3r"/>
                         <outlet property="trackNameLabel" destination="aBx-KW-abc" id="rXb-tr-w5e"/>
                     </connections>
                 </viewController>

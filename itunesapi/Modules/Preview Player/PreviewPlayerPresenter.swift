@@ -9,8 +9,9 @@
 //
 
 import UIKit
+import OrigamiEngine
 
-final class PreviewPlayerPresenter {
+final class PreviewPlayerPresenter: NSObject {
 
     // MARK: - Private properties -
 
@@ -18,6 +19,12 @@ final class PreviewPlayerPresenter {
     private var _interactor: PreviewPlayerInteractorInterface
     private var _wireframe: PreviewPlayerWireframeInterface
     private let song: Media
+    
+    lazy private var player: ORGMEngine = {
+        let engine = ORGMEngine()
+        _view.player = engine
+        return engine
+    }()
 
     // MARK: - Lifecycle -
 
@@ -38,7 +45,7 @@ final class PreviewPlayerPresenter {
 // MARK: Close player
 extension PreviewPlayerPresenter: PreviewPlayerPresenterInterface {
     func didClosePreviewPlayer() {
-        
+        stopPreview()
     }
 }
 
@@ -48,10 +55,16 @@ extension PreviewPlayerPresenter: PreviewPlayerPresenterInterface {
 // MARK: Playback
 extension PreviewPlayerPresenter {
     func playPreview(_ url: URL) {
-        
+        player.delegate = _view
+        player.play(url)
     }
     
     func stopPreview() {
-        
+        player.delegate = nil
+        player.stop()
+    }
+    
+    func seek(_ value: Float) {
+        player.seek(toTime: Double(value))
     }
 }

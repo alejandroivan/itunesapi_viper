@@ -100,6 +100,7 @@
 		6EFDC67220A33ACA00E8B824 /* PreviewPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerPresenter.swift; sourceTree = "<group>"; };
 		6EFDC67320A33ACA00E8B824 /* PreviewPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerViewController.swift; sourceTree = "<group>"; };
 		6EFDC67420A33ACA00E8B824 /* PreviewPlayerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPlayerWireframe.swift; sourceTree = "<group>"; };
+		6EFDC67A20A3731B00E8B824 /* itunesapi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "itunesapi-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9C7D02E1395A0AEE5B24C59 /* Pods-itunesapiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4733D4D9F3A8430E307A3A8 /* Pods_itunesapiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesapiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19C5ACF9C7E2C386145CA6B /* Pods-itunesapiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesapiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-itunesapiTests/Pods-itunesapiTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 				6EFDC61A20A1F71B00E8B824 /* AppDelegate.swift */,
 				6EFDC65D20A2093500E8B824 /* AppNavigationController.swift */,
 				6EFDC65F20A20AEE00E8B824 /* Main.storyboard */,
+				6EFDC67A20A3731B00E8B824 /* itunesapi-Bridging-Header.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -365,6 +367,7 @@
 				TargetAttributes = {
 					6EFDC61620A1F71B00E8B824 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					6EFDC62A20A1F72000E8B824 = {
 						CreatedOnToolsVersion = 9.3;
@@ -442,12 +445,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ICSPullToRefresh/ICSPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/OrigamiEngine/OrigamiEngine.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ICSPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OrigamiEngine.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -662,6 +667,7 @@
 			baseConfigurationReference = 1DD5E1A5ED29081B1C81A80C /* Pods-itunesapi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99QSH5L9VP;
 				INFOPLIST_FILE = "$(PRODUCT_NAME)/Application/Info.plist";
@@ -671,6 +677,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cl.penquistas.itunesapi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "itunesapi/Application/itunesapi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -681,6 +689,7 @@
 			baseConfigurationReference = 1EB252D95CE11CA8754BF4C3 /* Pods-itunesapi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99QSH5L9VP;
 				INFOPLIST_FILE = "$(PRODUCT_NAME)/Application/Info.plist";
@@ -690,6 +699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cl.penquistas.itunesapi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "itunesapi/Application/itunesapi-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

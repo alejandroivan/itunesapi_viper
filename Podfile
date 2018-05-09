@@ -10,7 +10,7 @@ target 'itunesapi' do
   pod 'Alamofire', '~> 4.7' # Conectividad
   pod 'AlamofireImage', '~> 3.3' # Carga asíncrona de imágenes en UIImageView
   pod 'ICSPullToRefresh', '~> 0.6' # Infinite scrolling (paginación) de resultados de búsqueda
-
+  pod 'OrigamiEngine', '~> 1.0' # Playback de audio local o remoto, incluyendo caching
 
   target 'itunesapiTests' do
     inherit! :search_paths

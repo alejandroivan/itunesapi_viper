@@ -10,6 +10,7 @@
 
 import UIKit
 import AlamofireImage
+import OrigamiEngine
 
 final class PreviewPlayerViewController: UIViewController {
 
@@ -17,6 +18,14 @@ final class PreviewPlayerViewController: UIViewController {
     @IBOutlet private weak var coverImageView: UIImageView!
     @IBOutlet private weak var trackNameLabel: UILabel!
     @IBOutlet private weak var playerContainerView: UIView!
+    @IBOutlet fileprivate weak var seekSlider: UISlider!
+    @IBOutlet fileprivate weak var playedTimeLabel: UILabel!
+    @IBOutlet fileprivate weak var totalTimeLabel: UILabel!
+    
+    private var refreshTimer: Timer?
+    
+    weak var player: ORGMEngine?
+    
     
     
     // MARK: - Public properties -
@@ -33,8 +42,20 @@ final class PreviewPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBlurEffect()
-        
         presenter.viewDidLoad()
+        
+        seekSlider.addTarget(self, action: #selector(seek(_:)), for: .valueChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(refreshPlayer), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        refreshTimer?.invalidate()
+        refreshTimer = nil
     }
 	
     @IBAction func closePopup() {
@@ -43,6 +64,9 @@ final class PreviewPlayerViewController: UIViewController {
         }
     }
     
+    @objc private func seek(_ sender: UISlider) {
+        presenter.seek(seekSlider.value)
+    }
 }
 
 // MARK: - Extensions -
@@ -68,6 +92,26 @@ extension PreviewPlayerViewController {
         coverImageView.af_setImage(withURL: imageURL)
         
         trackNameLabel.text = item.trackName
+        
+        presenter.playPreview(previewURL)
+    }
+    
+    @objc fileprivate func refreshPlayer() {
+        guard
+            let state = player?.currentState,
+            state == ORGMEngineStatePlaying,
+            let amountPlayed = player?.amountPlayed(),
+            let trackTime = player?.trackTime()
+        else {
+            return
+        }
+        
+        let played = Int(floor(amountPlayed))
+        let total = Int(ceil(trackTime))
+        
+        seekSlider.value = Float(amountPlayed)
+        playedTimeLabel.text = "\(played)s"
+        totalTimeLabel.text = "\(total)s"
     }
 }
 
@@ -84,5 +128,33 @@ extension PreviewPlayerViewController {
         
         view.addSubview(blurEffectView)
         view.sendSubview(toBack: blurEffectView)
+    }
+}
+
+
+
+
+// MARK: - ORGMEngine
+extension PreviewPlayerViewController: ORGMEngineDelegate {
+    func engineExpectsNextUrl(_ engine: ORGMEngine!) -> URL! {
+        return nil // Solo un asset a reproducir
+    }
+    
+    @objc func engine(_ engine: ORGMEngine!, didChange state: ORGMEngineState) {
+        print("engine:didChangeState:")
+        
+        switch state {
+        case ORGMEngineStateStopped:
+            seekSlider.value = 0.0
+            playedTimeLabel.text = nil
+            totalTimeLabel.text = nil
+            
+        case ORGMEngineStatePlaying:
+            seekSlider.maximumValue = Float(player?.trackTime() ?? 0.0)
+            seekSlider.value = Float(0.0)
+            
+        default:
+            break
+        }
     }
 }

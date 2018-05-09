@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import OrigamiEngine
 
 enum PreviewPlayerNavigationOption {
 }
@@ -17,8 +18,9 @@ protocol PreviewPlayerWireframeInterface: WireframeInterface {
     func navigate(to option: PreviewPlayerNavigationOption)
 }
 
-protocol PreviewPlayerViewInterface: ViewInterface {
+protocol PreviewPlayerViewInterface: ViewInterface, ORGMEngineDelegate {
     var item: Media? { get set }
+    var player: ORGMEngine? { get set }
 }
 
 protocol PreviewPlayerPresenterInterface: PresenterInterface {
@@ -26,6 +28,7 @@ protocol PreviewPlayerPresenterInterface: PresenterInterface {
     
     func playPreview(_ url: URL)
     func stopPreview()
+    func seek(_ value: Float)
 }
 
 protocol PreviewPlayerInteractorInterface: InteractorInterface {

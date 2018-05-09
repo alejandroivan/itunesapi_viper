@@ -1,0 +1,6 @@
+framework module OrigamiEngine {
+  umbrella header "OrigamiEngine-umbrella.h"
+
+  export *
+  module * { export * }
+}
