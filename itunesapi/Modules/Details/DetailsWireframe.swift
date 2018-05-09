@@ -16,8 +16,6 @@ final class DetailsWireframe: BaseWireframe {
         let presenter = DetailsPresenter(wireframe: self, view: moduleViewController, interactor: interactor, item: media)
         interactor.presenter = presenter
         moduleViewController.presenter = presenter
-        
-        print("Details for: \(media)")
     }
 
 }

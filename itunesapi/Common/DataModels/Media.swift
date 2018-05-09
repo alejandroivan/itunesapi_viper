@@ -10,6 +10,7 @@ struct Media: Decodable {
     let kind: String?
     let trackId: Int?
     let trackName: String?
+    let trackNumber: Int?
 
     var artwork: String?
     var previewUrl: String?
@@ -41,7 +42,7 @@ extension Media {
 
 extension Media {
     enum CodingKeys: String, CodingKey {
-        case wrapperType, kind, trackName, artistName, collectionId, collectionName, previewUrl, trackId
+        case wrapperType, kind, trackName, trackNumber, artistName, collectionId, collectionName, previewUrl, trackId
         case artwork = "artworkUrl100"
     }
 }

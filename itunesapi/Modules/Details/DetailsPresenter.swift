@@ -33,11 +33,14 @@ extension DetailsPresenter: DetailsPresenterInterface {
     }
     
     func successFetchingAlbum(album: Album) {
-        print("RESULTS: \(album)")
+        _view.album = album.albumInfo
+        _view.tracks = album.tracks
     }
     
     func failureFetchingAlbum(error: Error?) {
-        print("ERROR: \(error)")
+        print("ERROR: \(String(describing: error))")
+        _view.album = nil
+        _view.tracks = []
     }
     
 }

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,41 +22,96 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="N2d-pP-JiJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="N2d-pP-JiJ" userLabel="Top View">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="epF-7N-R4o">
+                                            <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="HX3-Lk-ucJ"/>
+                                                <constraint firstAttribute="width" secondItem="epF-7N-R4o" secondAttribute="height" multiplier="1:1" id="qfA-pM-6Me"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Nombre de la banda" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKY-HQ-Wdq">
+                                            <rect key="frame" x="116" y="8" width="251" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="36" id="7c5-Fm-hgo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre del álbum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dab-87-HzX">
+                                            <rect key="frame" x="116" y="26" width="251" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="lL7-GH-ZmY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="epF-7N-R4o" firstAttribute="top" secondItem="N2d-pP-JiJ" secondAttribute="top" constant="8" id="1s2-GP-sjX"/>
+                                        <constraint firstAttribute="trailing" secondItem="dab-87-HzX" secondAttribute="trailing" constant="8" id="2Kj-rM-2yo"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dab-87-HzX" secondAttribute="bottom" constant="8" id="5Pf-LB-gJ6"/>
+                                        <constraint firstAttribute="trailing" secondItem="dKY-HQ-Wdq" secondAttribute="trailing" constant="8" id="Jag-tE-WI0"/>
+                                        <constraint firstItem="epF-7N-R4o" firstAttribute="leading" secondItem="N2d-pP-JiJ" secondAttribute="leading" constant="8" id="VlD-3a-V8J"/>
+                                        <constraint firstItem="dab-87-HzX" firstAttribute="top" secondItem="dKY-HQ-Wdq" secondAttribute="bottom" id="gE1-HA-t6W"/>
+                                        <constraint firstItem="dKY-HQ-Wdq" firstAttribute="leading" secondItem="epF-7N-R4o" secondAttribute="trailing" constant="8" id="gW6-oW-TxW"/>
+                                        <constraint firstItem="dKY-HQ-Wdq" firstAttribute="top" secondItem="N2d-pP-JiJ" secondAttribute="top" constant="8" id="h3E-D9-hEX"/>
+                                        <constraint firstItem="dab-87-HzX" firstAttribute="leading" secondItem="epF-7N-R4o" secondAttribute="trailing" constant="8" id="nRM-mL-nR1"/>
+                                    </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="4CT-UR-q9r" userLabel="Bottom View">
-                                    <rect key="frame" x="0.0" y="306" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="222" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailsTableViewCell" id="zbh-W9-ciC">
-                                        <rect key="frame" x="0.0" y="228" width="375" height="78"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsTableViewCell" id="zbh-W9-ciC" customClass="DetailsTableViewCell" customModule="itunesapi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zbh-W9-ciC" id="AIn-uJ-Sch">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjx-sA-IpG">
-                                                    <rect key="frame" x="8" y="8" width="359" height="61.5"/>
-                                                    <string key="text">Label
-Label
-Label</string>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9Q-KL-rEL">
+                                                    <rect key="frame" x="8" y="8" width="30" height="61.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="QK5-7C-KT4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título de la canción" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTx-NI-pID">
+                                                    <rect key="frame" x="38" y="8" width="329" height="61.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Fjx-sA-IpG" secondAttribute="bottom" constant="8" id="BNA-78-RXw"/>
-                                                <constraint firstItem="Fjx-sA-IpG" firstAttribute="top" secondItem="AIn-uJ-Sch" secondAttribute="top" constant="8" id="FKB-S9-shW"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fjx-sA-IpG" secondAttribute="trailing" constant="8" id="FyK-AD-MSF"/>
-                                                <constraint firstItem="Fjx-sA-IpG" firstAttribute="leading" secondItem="AIn-uJ-Sch" secondAttribute="leading" constant="8" id="iux-JM-Jgo"/>
+                                                <constraint firstAttribute="bottom" secondItem="m9Q-KL-rEL" secondAttribute="bottom" constant="8" id="2kX-6x-vXh"/>
+                                                <constraint firstAttribute="trailing" secondItem="JTx-NI-pID" secondAttribute="trailing" constant="8" id="59Y-rd-heL"/>
+                                                <constraint firstItem="m9Q-KL-rEL" firstAttribute="top" secondItem="AIn-uJ-Sch" secondAttribute="top" constant="8" id="9ac-WF-eWW"/>
+                                                <constraint firstAttribute="bottom" secondItem="JTx-NI-pID" secondAttribute="bottom" constant="8" id="CrG-eb-LU5"/>
+                                                <constraint firstItem="m9Q-KL-rEL" firstAttribute="leading" secondItem="AIn-uJ-Sch" secondAttribute="leading" constant="8" id="ca3-Tw-lXc"/>
+                                                <constraint firstItem="JTx-NI-pID" firstAttribute="top" secondItem="AIn-uJ-Sch" secondAttribute="top" constant="8" id="i6c-an-zI8"/>
+                                                <constraint firstItem="JTx-NI-pID" firstAttribute="leading" secondItem="m9Q-KL-rEL" secondAttribute="trailing" id="uDm-S0-GRm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="trackNumberLabel" destination="m9Q-KL-rEL" id="JC1-U9-hFz"/>
+                                            <outlet property="trackTitleLabel" destination="JTx-NI-pID" id="jkW-x6-VMi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -70,6 +126,9 @@ Label</string>
                         <viewLayoutGuide key="safeArea" id="4Rq-s1-upl"/>
                     </view>
                     <connections>
+                        <outlet property="albumLabel" destination="dab-87-HzX" id="W0P-we-eE0"/>
+                        <outlet property="artistLabel" destination="dKY-HQ-Wdq" id="fgL-Bb-IZc"/>
+                        <outlet property="coverImageView" destination="epF-7N-R4o" id="8Z3-lE-YiB"/>
                         <outlet property="tableView" destination="PFN-Vu-e0I" id="V9H-wh-u3Z"/>
                     </connections>
                 </viewController>

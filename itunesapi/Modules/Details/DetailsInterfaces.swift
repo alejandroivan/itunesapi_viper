@@ -18,6 +18,8 @@ protocol DetailsWireframeInterface: WireframeInterface {
 }
 
 protocol DetailsViewInterface: ViewInterface {
+    var album: Media? { get set }
+    var tracks: [Media]? { get set }
 }
 
 protocol DetailsPresenterInterface: PresenterInterface {
