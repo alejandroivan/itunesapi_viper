@@ -16,7 +16,7 @@ final class SearchViewController: UIViewController {
                 // Scroll to top (solo si no hay resultados ya, para que no se vaya al tope cuando se cargan más páginas)
                 if oldValue.count == 0 {
                     self.tableView.beginUpdates()
-                    self.tableView.setContentOffset(.zero, animated: false)
+                    self.tableView.setContentOffset(.zero, animated: true)
                     self.tableView.endUpdates()
                 }
             }

@@ -57,6 +57,8 @@ extension SearchInteractor {
 // MARK: - Core data
 extension SearchInteractor {
     func saveLocalResults(for query: String, json: String) {
+        deleteLocalResults(for: query) // Eliminar resultados anteriores (mantenemos un solo registro con el string JSON para cada query)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -66,11 +68,7 @@ extension SearchInteractor {
         results.setValue(query, forKey: "query")
         results.setValue(json, forKey: "json")
         
-        do {
-            try context.save()
-        } catch {
-            print("[COREDATA] ERROR: \(error.localizedDescription)")
-        }
+        try? context.save()
     }
     
     func fetchLocalResults(for query: String) -> [Media] {
@@ -100,8 +98,25 @@ extension SearchInteractor {
             }
         } catch {}
         
-        
         return results
+    }
+    
+    private func deleteLocalResults(for query: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Searches")
+        request.predicate = NSPredicate(format: "query = %@", query)
+        
+        do {
+            let result = try context.fetch(request)
+            for object in result {
+                let obj = object as! NSManagedObject
+                context.delete(obj)
+            }
+            
+            try context.save()
+        } catch {}
     }
 }
 
