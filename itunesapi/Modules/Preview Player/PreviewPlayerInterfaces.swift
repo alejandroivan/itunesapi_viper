@@ -29,6 +29,9 @@ protocol PreviewPlayerPresenterInterface: PresenterInterface {
     func playPreview(_ url: URL)
     func stopPreview()
     func seek(_ value: Float)
+    
+    func enableAudioSession()
+    func disableAudioSession()
 }
 
 protocol PreviewPlayerInteractorInterface: InteractorInterface {

@@ -144,10 +144,13 @@ extension PreviewPlayerViewController: ORGMEngineDelegate {
         print("engine:didChangeState:")
         
         switch state {
+        case ORGMEngineStatePaused: fallthrough
+            
         case ORGMEngineStateStopped:
             seekSlider.value = 0.0
             playedTimeLabel.text = nil
             totalTimeLabel.text = nil
+            presenter.disableAudioSession()
             
         case ORGMEngineStatePlaying:
             seekSlider.maximumValue = Float(player?.trackTime() ?? 0.0)

@@ -10,6 +10,7 @@
 
 import UIKit
 import OrigamiEngine
+import AVFoundation
 
 final class PreviewPlayerPresenter: NSObject {
 
@@ -55,16 +56,39 @@ extension PreviewPlayerPresenter: PreviewPlayerPresenterInterface {
 // MARK: Playback
 extension PreviewPlayerPresenter {
     func playPreview(_ url: URL) {
+        enableAudioSession()
         player.delegate = _view
         player.play(url)
     }
     
     func stopPreview() {
-        player.delegate = nil
         player.stop()
+        player.delegate = nil
+        disableAudioSession()
     }
     
     func seek(_ value: Float) {
         player.seek(toTime: Double(value))
+    }
+}
+
+
+
+
+// MARK: - Audio session
+extension PreviewPlayerPresenter {
+    func enableAudioSession() {
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(AVAudioSessionCategoryPlayback)
+        try? session.setActive(true)
+    }
+    
+    func disableAudioSession() {
+        let session = AVAudioSession.sharedInstance()
+        let queue = ORGMQueues.processing_queue()
+        
+        queue?.async {
+            try? session.setActive(false)
+        }
     }
 }
