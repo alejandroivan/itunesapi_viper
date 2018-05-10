@@ -78,6 +78,9 @@ extension SearchPresenter {
         _view.hideLoadingIndicator()
         
         showNoResultsIfNeeded()
+        
+        // Guardar resultados obtenidos en core data para recuperarlos sin conexión
+        saveResults(for: lastTerm, medias: currentMedias)
     }
     
     func failureFetching(error: Error?) {
@@ -88,8 +91,16 @@ extension SearchPresenter {
         
         print("ERROR: \(error)")
         
+        let cachedMedias = _interactor.fetchLocalResults(for: lastTerm)
+        
         _view.hideLoadingIndicator()
-        showNoResultsIfNeeded()
+        
+        if cachedMedias.count == 0 {
+            showNoResultsIfNeeded()
+        } else {
+            _view.medias = cachedMedias
+            _view.hideLoadingIndicator()
+        }
     }
     
     private func showNoResultsIfNeeded() {
@@ -97,6 +108,24 @@ extension SearchPresenter {
             _view.showNoResultsMessage()
         } else {
             _view.hideNoResultsMessage()
+        }
+    }
+}
+
+
+
+
+// MARK: - Core data
+extension SearchPresenter {
+    fileprivate func saveResults(for term: String, medias: [Media]) {
+        do {
+            let jsonData = try JSONEncoder().encode(medias)
+            
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                _interactor.saveLocalResults(for: term, json: jsonString)
+            }
+        } catch {
+            print("[COREDATA] ERROR: \(error.localizedDescription)")
         }
     }
 }

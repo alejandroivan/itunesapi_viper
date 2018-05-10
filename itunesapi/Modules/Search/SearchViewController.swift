@@ -12,6 +12,13 @@ final class SearchViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.infiniteScrollingView?.stopAnimating()
                 self.tableView.reloadData()
+                
+                // Scroll to top (solo si no hay resultados ya, para que no se vaya al tope cuando se cargan más páginas)
+                if oldValue.count == 0 {
+                    self.tableView.beginUpdates()
+                    self.tableView.setContentOffset(.zero, animated: false)
+                    self.tableView.endUpdates()
+                }
             }
         }
     }

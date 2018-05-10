@@ -30,4 +30,7 @@ protocol SearchPresenterInterface: PresenterInterface {
 
 protocol SearchInteractorInterface: InteractorInterface {
     func fetchMedia(for term: String, page: Int)
+    
+    func saveLocalResults(for query: String, json: String)
+    func fetchLocalResults(for query: String) -> [Media]
 }

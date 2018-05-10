@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 import Alamofire
 
 final class SearchInteractor {
@@ -21,7 +22,6 @@ extension SearchInteractor: SearchInteractorInterface {
         }) { error in
             self.presenter.failureFetching(error: error)
         }
-        
     }
 }
 
@@ -48,6 +48,60 @@ extension SearchInteractor {
         urlComponents.queryItems = queryItems
         
         return urlComponents.url!
+    }
+}
+
+
+
+
+// MARK: - Core data
+extension SearchInteractor {
+    func saveLocalResults(for query: String, json: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Searches", in: context)
+        let results = NSManagedObject(entity: entity!, insertInto: context)
+        
+        results.setValue(query, forKey: "query")
+        results.setValue(json, forKey: "json")
+        
+        do {
+            try context.save()
+        } catch {
+            print("[COREDATA] ERROR: \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchLocalResults(for query: String) -> [Media] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Searches")
+        request.predicate = NSPredicate(format: "query = %@", query)
+        request.returnsObjectsAsFaults = false
+
+        var results: [Media] = []
+
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                guard let json = data.value(forKey: "json") as? String else {
+                    continue
+                }
+                
+                do {
+                    if let jsonData = json.data(using: .utf8) {
+                        results = try JSONDecoder().decode([Media].self, from: jsonData)
+                    }
+                } catch {
+                    continue
+                }
+            }
+        } catch {}
+        
+        
+        return results
     }
 }
 
